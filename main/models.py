@@ -23,3 +23,18 @@ class Client(models.Model):
         verbose_name = 'клиент'
         verbose_name_plural = 'клиенты'
         ordering = ('email',)
+
+
+class Message(models.Model):
+    theme = models.CharField(max_length=100, verbose_name='тема письма')
+    text = models.TextField(verbose_name='текст письма')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь',
+                              **NULLABLE)
+
+    def __str__(self):
+        return f'{self.theme}'
+
+    class Meta:
+        verbose_name = 'письмо'
+        verbose_name_plural = 'письма'
+        ordering = ('theme',)
