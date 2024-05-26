@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<p class="fs-4 text-body-secondary text-center mb-4">Добро пожаловать в наш сервис почтовой рассылки</p>
+<div class="text-center">
+    <a class="btn btn-outline-dark m-4" href="#">Добавить рассылку</a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    {% for object in object_list %}
+    <div class="col-4">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h5 class="my-0 fw-normal">{{ object.title }}</h5>
+                <span class="text-muted">{{ object.status }}</span>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title pricing-card-title">{{ object.message }}</h6>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{ object.email }}</li>
+                    <li>Дата начала: {{ object.start_date }}</li>
+                    <li>Дата окончания: {{ object.end_date }}</li>
+                    <li>Владелец: {{ object.owner }}</li>
+                </ul>
+                <a class="w-100 btn btn-lg btn-outline-primary"
+                   href="#">Просмотр</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
