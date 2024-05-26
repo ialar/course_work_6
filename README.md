@@ -1,6 +1,6 @@
 # course_work_6
 
-## "Sky-mailing" (service for managing mailings, administering and obtaining statistics)
+## 'Sky-mailing' (service for managing mailings)
 
 Проект реализует сервис «прогревающих» рассылок для информирования и привлечения клиентов.
 В приложение встроена автоматическая отправка сообщений с помощью планировщика задач Django APScheduler.
