@@ -3,7 +3,7 @@
 {% block content %}
 <p class="fs-4 text-body-secondary text-center mb-4">Добро пожаловать в наш сервис почтовой рассылки</p>
 <div class="text-center">
-    <a class="btn btn-outline-dark m-4" href="#">Добавить рассылку</a>
+    <a class="btn btn-outline-dark m-4" href="{% url 'main:mailing_create' %}">Создать рассылку</a>
 </div>
 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
     {% for object in object_list %}
@@ -21,8 +21,8 @@
                     <li>Дата окончания: {{ object.end_date }}</li>
                     <li>Владелец: {{ object.owner }}</li>
                 </ul>
-                <a class="w-100 btn btn-lg btn-outline-primary"
-                   href="#">Просмотр</a>
+                <a class="w-50 btn btn-sm btn-outline-primary mb-2"
+                   href="{% url 'main:mailing_detail' object.pk %}">Просмотр</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<p class="fs-4 text-body-secondary text-center mb-4">Здесь Вы можете добавить клиентов для своей рассылки</p>
+<div class="text-center">
+    <a class="btn btn-outline-dark m-4" href="{% url 'main:client_create' %}">Добавить клиента</a>
+</div>
+<div class="col-12">
+    <div class="row">
+        {% for object in object_list %}
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{ object.email }}</p>
+                    <p>{{ object.name }}</p>
+                    {% if object.comment %}
+                    <p>{{ object.comment }}</p>
+                    {% endif %}
+                    <p>{{ object.owner }}</p>
+                    <a href="{% url 'main:client_update' object.pk %}"
+                       class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                    <a href="{% url 'main:client_delete' object.pk %}" type="button"
+                       class="btn btn-sm btn-outline-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
