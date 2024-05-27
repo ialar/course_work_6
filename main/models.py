@@ -14,7 +14,7 @@ class Client(models.Model):
     owner = models.ForeignKey(USER, on_delete=models.CASCADE, verbose_name='пользователь', **NULLABLE)
 
     def __str__(self):
-        return f'Адресат рассылки {self.email}'
+        return self.email
 
     class Meta:
         verbose_name = 'клиент'
@@ -28,7 +28,7 @@ class Message(models.Model):
     owner = models.ForeignKey(USER, on_delete=models.CASCADE, verbose_name='пользователь', **NULLABLE)
 
     def __str__(self):
-        return f'Тема письма {self.theme}'
+        return f'Тема письма: {self.theme}'
 
     class Meta:
         verbose_name = 'письмо'
