@@ -63,9 +63,9 @@ class Mailing(models.Model):
 
 class Logs(models.Model):
     last_mailing_time = models.DateTimeField(auto_now=True, verbose_name='время последней попытки', **NULLABLE)
-    status = models.BooleanField(default=False, verbose_name='статус попытки рассылки')
+    status = models.CharField(max_length=50, verbose_name='статус попытки рассылки', null=True)
     response = models.CharField(max_length=255, verbose_name='ответ почтового сервера', **NULLABLE)
-    mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name="рассылка", **NULLABLE)
+    mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name='рассылка', **NULLABLE)
 
     def __str__(self):
         log = f'Попытка рассылки {self.mailing} {self.last_mailing_time}'
