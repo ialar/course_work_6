@@ -20,10 +20,10 @@ class MailingForm(StylingFormMixin, forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
-        owner = self.request.user
+        user = self.request.user
         super().__init__(*args, **kwargs)
-        self.fields['message'].queryset = Message.objects.filter(owner=owner)
-        self.fields['client'].queryset = Client.objects.filter(owner=owner)
+        self.fields['message'].queryset = Message.objects.filter(owner=user)
+        self.fields['client'].queryset = Client.objects.filter(owner=user)
 
     class Meta:
         model = Mailing

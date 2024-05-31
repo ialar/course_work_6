@@ -41,13 +41,14 @@ def mailing_job():
             response = e
 
         if result == 1:
-            print('Отправлено')
             status = 'Отправлено'
+            print('Отправлено')
         else:
-            print('Ошибка отправки')
             status = 'Ошибка отправки'
+            print('Ошибка отправки')
 
-        log = Logs(mailing=mail, status=status, response=response)
+        last_mailing_time = Logs.last_mailing_time
+        log = Logs(mailing=mail, status=status, response=response, last_mailing_time=last_mailing_time)
         log.save()
         print(log)
 

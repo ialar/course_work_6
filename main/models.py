@@ -68,7 +68,7 @@ class Logs(models.Model):
     mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name='рассылка', **NULLABLE)
 
     def __str__(self):
-        log = f'Попытка рассылки {self.mailing} {self.last_mailing_time}'
+        log = f'Попытка рассылки {self.mailing} {self.last_mailing_time} '
         if self.status:
             log += 'Успешная попытка отправки'
         else:

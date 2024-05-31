@@ -73,9 +73,7 @@
             <div class="card-body">
                 {% for log in logs %}
                 {% if log.mailing_id == object.id %}
-                <p> - {{ log.mailing }},
-                    {{ log.response }},
-                    {{ log.status }}</p>
+                <p> - {{ log.mailing }}, {{ log.response }}, {{ log.status }}, {{ log.last_mailing_time }}</p>
                 {% endif %}
                 {% endfor %}
             </div>
