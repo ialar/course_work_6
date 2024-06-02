@@ -1,22 +1,21 @@
 from django import forms
-from django.forms import DateTimeInput, CheckboxInput
+from django.forms import DateTimeInput, CheckboxInput, BooleanField
 
 from main.models import Mailing, Message, Client
 
 
-class StylingFormMixin(forms.Form):
+class StyleFormMixin(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
         for field_name, field in self.fields.items():
-            if field_name == 'is_active':
+            if isinstance(field, BooleanField):
                 field.widget.attrs['class'] = 'form-check-input'
             else:
                 field.widget.attrs['class'] = 'form-control'
 
 
-class MailingForm(StylingFormMixin, forms.ModelForm):
+class MailingForm(StyleFormMixin, forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
@@ -34,19 +33,19 @@ class MailingForm(StylingFormMixin, forms.ModelForm):
                    'is_active': CheckboxInput(attrs={})}
 
 
-class MailingModerForm(StylingFormMixin, forms.ModelForm):
+class MailingModerForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Mailing
         fields = ('is_active',)
 
 
-class MessageForm(StylingFormMixin, forms.ModelForm):
+class MessageForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Message
         exclude = ('user',)
 
 
-class ClientForm(StylingFormMixin, forms.ModelForm):
+class ClientForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Client
         exclude = ('user',)
