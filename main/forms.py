@@ -42,10 +42,10 @@ class MailingModerForm(StyleFormMixin, forms.ModelForm):
 class MessageForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Message
-        exclude = ('user',)
+        exclude = ('owner',)
 
 
 class ClientForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Client
-        exclude = ('user',)
+        exclude = ('owner',)

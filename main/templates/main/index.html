@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row text-start">
+        <div class="col-6">
+            <div class="p-3 p-md-3 mb-3 rounded text-body-emphasis bg-body-secondary">
+                <h5 class="text-center">Рассылки</h5>
+                <p class="h6 text-center lead my-2">Общее количество рассылок: <b>{{ mailings_count|default:0 }}</b></p>
+                <p class="h6 text-center lead my-1">Количество активных рассылок: <b>{{ active_mailings_count|default:0 }}</b></p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="p-3 p-md-3 mb-3 rounded text-body-emphasis bg-body-secondary">
+                <h5 class="text-center">Клиенты</h5>
+                <p class="text-center lead my-3 mb-4">Количество уникальных клиентов: <b>{{ clients_count|default:0 }}</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row text-start">
+        <div class="col-6">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h5 class="my-0 font-weight-normal">Обратная связь</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="" class="form-floating">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name">Имя</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя"
+                                   required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Телефон</label>
+                            <input type="text" name="phone" class="form-control" id="phone"
+                                   placeholder="Контактный телефон" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message">Сообщение</label>
+                            <textarea name="message" class="form-control" id="message" placeholder="Введите текст"
+                                      required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-block btn-outline-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h5 class="my-0 font-weight-normal">Контакты</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td class="w-25">Страна</td>
+                            <td>Нидерланды</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Адрес</td>
+                            <td>Cornelis Zillesenlaan 99, 9999 ZK Amsterdam</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Email</td>
+                            <td>info@sky-mailing.com</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Телефон</td>
+                            <td>+31 99 999 9999</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
