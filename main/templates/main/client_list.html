@@ -11,12 +11,12 @@
         <div class="col-12 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <p>{{ object.email }}</p>
-                    <p>{{ object.name }}</p>
+                    <p>Email клиента: {{ object.email }}</p>
+                    <p>Ф.И.О.: {{ object.name }}</p>
                     {% if object.comment %}
-                    <p>{{ object.comment }}</p>
+                    <p>Комментарий: {{ object.comment }}</p>
                     {% endif %}
-                    <p>{{ object.owner }}</p>
+                    <p>Владелец: {{ object.owner }}</p>
                     <a href="{% url 'main:client_update' object.pk %}"
                        class="btn btn-sm btn-outline-secondary">Редактировать</a>
                     <a href="{% url 'main:client_delete' object.pk %}" type="button"
