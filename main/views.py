@@ -1,7 +1,10 @@
+import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, TemplateView
 
+from blog.models import BlogPost
 from main.forms import MailingForm, MessageForm, ClientForm
 from main.models import Mailing, Message, Logs, Client
 
@@ -15,10 +18,10 @@ class Index(TemplateView):
         context_data = super().get_context_data(**kwargs)
         context_data["mailings_count"] = Mailing.objects.all().count()
         context_data["active_mailings_count"] = Mailing.objects.filter(is_active=True).count()
-        # blog_list = list(Blog.objects.all())
-        # random.shuffle(blog_list)
-        # context_data["blog_list"] = blog_list[:3]
         context_data["clients_count"] = len(Client.objects.all())
+        blog_list = list(BlogPost.objects.all())
+        random.shuffle(blog_list)
+        context_data["blog_list"] = blog_list[:3]
         return context_data
 
 

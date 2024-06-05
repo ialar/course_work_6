@@ -17,5 +17,5 @@ class MessageAdmin(admin.ModelAdmin):
 
 
 @admin.register(Client)
-class MailingAdmin(admin.ModelAdmin):
+class ClientAdmin(admin.ModelAdmin):
     list_display = ('email', 'name', 'comment', 'owner')

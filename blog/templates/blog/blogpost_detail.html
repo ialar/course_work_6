@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card mb-4 rounded-3 shadow-sm w-50 text-center">
+        <div class="card-header py-3">
+            <h3 class="my-0 fw-normal">{{ object.title }}</h3>
+        </div>
+        <img class="card-img-top" src="{% my_media_tag object.preview %}" alt="Card image cap">
+        <div class="card-body">
+            <p class='text-start'>{{ object.content }}</p>
+            <p>Дата публикации: {{ object.created_at }}</p>
+            <p class="fs-6 text-body-secondary text-center m-3">Просмотры: {{ object.views }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
