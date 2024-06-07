@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from blog.models import BlogPost
 from main.forms import MailingForm, MessageForm, ClientForm, MailingManagerForm
 from main.models import Mailing, Message, Logs, Client
+from main.services import get_cache_for_mailings_count
 
 
 class Index(TemplateView):
@@ -16,7 +17,7 @@ class Index(TemplateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['mailings_count'] = Mailing.objects.all().count()
+        context_data['mailings_count'] = get_cache_for_mailings_count
         context_data['active_mailings_count'] = Mailing.objects.filter(is_active=True).count()
         context_data['clients_count'] = len(Client.objects.all())
         blog_list = list(BlogPost.objects.all())
