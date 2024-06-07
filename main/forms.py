@@ -33,7 +33,7 @@ class MailingForm(StyleFormMixin, forms.ModelForm):
                    'is_active': CheckboxInput(attrs={})}
 
 
-class MailingModerForm(StyleFormMixin, forms.ModelForm):
+class MailingManagerForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Mailing
         fields = ('is_active',)

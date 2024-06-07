@@ -22,3 +22,4 @@ class User(AbstractUser):
         verbose_name = 'пользователь'
         verbose_name_plural = 'пользователи'
         ordering = ('email',)
+        permissions = [('set_is_active', 'может блокировать пользователя')]

@@ -1,11 +1,11 @@
 import random
 
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, TemplateView
 
 from blog.models import BlogPost
-from main.forms import MailingForm, MessageForm, ClientForm
+from main.forms import MailingForm, MessageForm, ClientForm, MailingManagerForm
 from main.models import Mailing, Message, Logs, Client
 
 
@@ -16,12 +16,12 @@ class Index(TemplateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data["mailings_count"] = Mailing.objects.all().count()
-        context_data["active_mailings_count"] = Mailing.objects.filter(is_active=True).count()
-        context_data["clients_count"] = len(Client.objects.all())
+        context_data['mailings_count'] = Mailing.objects.all().count()
+        context_data['active_mailings_count'] = Mailing.objects.filter(is_active=True).count()
+        context_data['clients_count'] = len(Client.objects.all())
         blog_list = list(BlogPost.objects.all())
         random.shuffle(blog_list)
-        context_data["blog_list"] = blog_list[:3]
+        context_data['blog_list'] = blog_list[:3]
         return context_data
 
 
@@ -64,7 +64,14 @@ class MailingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user.is_staff:
             return True
         return (self.request.user == Mailing.objects.get(
-            pk=self.kwargs["pk"]).user)
+            pk=self.kwargs['pk']).user)
+
+
+class MailingUpdateModeratorView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    model = Mailing
+    form_class = MailingManagerForm
+    success_url = reverse_lazy('main:mailing_list')
+    permission_required = 'main.set_is_activated'
 
 
 class MailingDetailView(LoginRequiredMixin, DetailView):
@@ -114,7 +121,7 @@ class MessageUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return self.request.user == Message.objects.get(
-            pk=self.kwargs["pk"]).user
+            pk=self.kwargs["pk"]).owner
 
 
 class MessageDetailView(LoginRequiredMixin, DetailView):

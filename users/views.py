@@ -2,14 +2,15 @@ import random
 import string
 
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, FormView, UpdateView
+from django.urls import reverse_lazy, reverse
+from django.views.generic import CreateView, TemplateView, FormView, UpdateView, ListView
 
 from config.settings import EMAIL_HOST_USER
-from users.forms import RegisterForm, UserPasswordResetForm, UserProfileForm
+from users.forms import RegisterForm, UserPasswordResetForm, UserProfileForm, UserManagerForm
 from users.models import User
 
 
@@ -79,3 +80,19 @@ class ProfileView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class UserListView(PermissionRequiredMixin, ListView):
+    model = User
+    permission_required = 'users.set_is_active'
+    extra_context = {'title': 'Список пользователей сервиса'}
+
+
+class UserUpdateView(PermissionRequiredMixin, UpdateView):
+    model = User
+    form_class = UserManagerForm
+    permission_required = 'users.set_is_active'
+    success_url = 'users:users_list'
+
+    def get_success_url(self):
+        return reverse('users:users_list')

@@ -62,6 +62,10 @@
                         <a href="{% url 'main:mailing_delete' object.pk %}" type="button"
                            class="btn btn-sm btn-outline-danger">Удалить</a>
                         {% endif %}
+                        {% if perms.main.set_is_activated %}
+                        <a href="{% url 'main:mailing_mod_edit' object.pk %}" type="button"
+                           class="btn btn-sm btn-outline-primary">Модерация</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
