@@ -1,0 +1,202 @@
+[
+{
+  "model": "main.mailing",
+  "pk": 1,
+  "fields": {
+    "periodicity": "day",
+    "status": "completed",
+    "start_date": "2024-05-28T17:55:00Z",
+    "next_date": "2024-05-30T19:13:32Z",
+    "end_date": "2024-05-30T13:42:00Z",
+    "title": "Title #1",
+    "message": 1,
+    "is_active": false,
+    "owner": 1,
+    "client": [
+      2,
+      1
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 2,
+  "fields": {
+    "periodicity": "week",
+    "status": "completed",
+    "start_date": "2024-05-03T13:40:00Z",
+    "next_date": "2024-05-25T21:00:00Z",
+    "end_date": "2024-05-16T13:40:00Z",
+    "title": "Title #2",
+    "message": 1,
+    "is_active": false,
+    "owner": 1,
+    "client": [
+      2
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 3,
+  "fields": {
+    "periodicity": "week",
+    "status": "completed",
+    "start_date": "2024-05-01T16:12:00Z",
+    "next_date": "2024-05-25T09:00:00Z",
+    "end_date": "2024-05-07T16:12:00Z",
+    "title": "Title #3",
+    "message": 2,
+    "is_active": false,
+    "owner": 1,
+    "client": [
+      2,
+      1
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 5,
+  "fields": {
+    "periodicity": "day",
+    "status": "launched",
+    "start_date": "2024-05-20T20:46:00Z",
+    "next_date": "2024-05-30T20:28:51.123Z",
+    "end_date": "2024-06-06T20:46:00Z",
+    "title": "Test",
+    "message": 3,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      4
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 6,
+  "fields": {
+    "periodicity": "day",
+    "status": "launched",
+    "start_date": "2024-05-29T19:56:00Z",
+    "next_date": "2024-05-30T20:28:52.178Z",
+    "end_date": "2024-05-31T19:54:00Z",
+    "title": "Test2",
+    "message": 3,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      2
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 7,
+  "fields": {
+    "periodicity": "day",
+    "status": "completed",
+    "start_date": "2024-05-29T20:11:40Z",
+    "next_date": "2024-05-30T20:28:53Z",
+    "end_date": "2024-05-30T20:03:00Z",
+    "title": "Test3",
+    "message": 2,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      1
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 8,
+  "fields": {
+    "periodicity": "day",
+    "status": "launched",
+    "start_date": "2024-05-29T20:15:00Z",
+    "next_date": "2024-05-30T20:28:55.127Z",
+    "end_date": "2024-06-01T20:13:00Z",
+    "title": "Test4",
+    "message": 3,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      1
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 9,
+  "fields": {
+    "periodicity": "day",
+    "status": "created",
+    "start_date": "2024-05-29T20:50:00Z",
+    "next_date": "2024-05-30T20:54:01.142Z",
+    "end_date": "2024-06-02T20:47:00Z",
+    "title": "Test5",
+    "message": 1,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      2
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 10,
+  "fields": {
+    "periodicity": "day",
+    "status": "finished",
+    "start_date": "2024-05-30T07:12:04Z",
+    "next_date": "2024-05-31T07:13:01.487Z",
+    "end_date": "2024-05-31T07:11:54Z",
+    "title": "Test6",
+    "message": 3,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      2
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 11,
+  "fields": {
+    "periodicity": "day",
+    "status": "created",
+    "start_date": "2024-05-30T07:17:37Z",
+    "next_date": "2024-05-31T07:21:01.331Z",
+    "end_date": "2024-05-31T09:00:00Z",
+    "title": "Тест 7",
+    "message": 3,
+    "is_active": true,
+    "owner": 1,
+    "client": [
+      2
+    ]
+  }
+},
+{
+  "model": "main.mailing",
+  "pk": 13,
+  "fields": {
+    "periodicity": "month",
+    "status": "created",
+    "start_date": "2024-06-06T06:57:00Z",
+    "next_date": "2024-07-06T21:09:02.259Z",
+    "end_date": "2024-08-11T06:57:00Z",
+    "title": "Some title",
+    "message": 9,
+    "is_active": true,
+    "owner": 6,
+    "client": [
+      6
+    ]
+  }
+}
+]

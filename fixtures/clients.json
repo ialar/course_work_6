@@ -1,0 +1,52 @@
+[
+{
+  "model": "main.client",
+  "pk": 1,
+  "fields": {
+    "email": "larionovbox@yandex.ru",
+    "name": "Ларионов Игорь Александрович",
+    "comment": "Тестовый клиент №1",
+    "owner": 1
+  }
+},
+{
+  "model": "main.client",
+  "pk": 2,
+  "fields": {
+    "email": "ialar@bk.ru",
+    "name": "Ларионов Игорь Александрович",
+    "comment": "",
+    "owner": 1
+  }
+},
+{
+  "model": "main.client",
+  "pk": 4,
+  "fields": {
+    "email": "ailar@gmail.com",
+    "name": "Ларионов Алексей Игоревич",
+    "comment": "",
+    "owner": 1
+  }
+},
+{
+  "model": "main.client",
+  "pk": 5,
+  "fields": {
+    "email": "jedialar@gmail.com",
+    "name": "Оби Ван Кеноби",
+    "comment": "Старик Бен с Татуина. Почту проверяет редко.",
+    "owner": 5
+  }
+},
+{
+  "model": "main.client",
+  "pk": 6,
+  "fields": {
+    "email": "polina_sigalova@mail.ru",
+    "name": "Сигалова Полина Викторовна",
+    "comment": "Зайка",
+    "owner": 6
+  }
+}
+]

@@ -1,0 +1,67 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$o9RleFAhvhhFE9Cvn0nlKs$gLw1LGnOXiU4mUAysl8ryv/VdIRgW8aVaCAfamnbtC4=",
+    "last_login": "2024-06-07T17:22:53.339Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-05-20T11:30:13.757Z",
+    "email": "admin@sky.pro",
+    "phone": "999-9999999",
+    "country": "Amsterdam",
+    "avatar": "user_pictures/31-05-2023_153808.jpg",
+    "verification_code": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$7NU5BKWbZJYuYj8cjklw2O$cP1r2CTHtqB8EoH9fZDvZA+eUfqIQX1U30S9ImVYpow=",
+    "last_login": "2024-06-06T20:10:18Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-06-02T17:19:37Z",
+    "email": "larionovbox@yandex.ru",
+    "phone": "777-777-7777",
+    "country": "Россия",
+    "avatar": "",
+    "verification_code": "8247296665",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ZnlA6NQfDb24RcthvuK1Pg$d38vL2ZAnpDkZx11RBgSIpJJt2YwgWPCzan+3mTC1FU=",
+    "last_login": "2024-06-06T19:52:32Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-06-05T20:09:49Z",
+    "email": "ialar@bk.ru",
+    "phone": null,
+    "country": null,
+    "avatar": "",
+    "verification_code": "7886067734",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
