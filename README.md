@@ -13,19 +13,19 @@
 
 ## Установка и запуск
 1. Клонируйте репозиторий с помощью команды:
-    ```shell
-   git clone https://github.com/ialar/course_work_6.git
-    ```
+```shell
+git clone https://github.com/ialar/course_work_6.git
+```
 2. Перейдите в папку проекта:
-    ```shell
-        cd course_work_6
-    ```
+```shell
+cd course_work_6
+```
 3. Установите необходимые зависимости, выполнив команду:
-    ```shell
-        pip install -r requirements.txt
-    ```
-Воспользуйтесь шаблоном .env.sample для создания файла `.env`
+```shell
+pip install -r requirements.txt
+```
 
+Воспользуйтесь шаблоном .env.sample для создания файла `.env`.
 Создайте БД, примените миграции и загрузите необходимые данные с помощью фикстур (.\fixtures\):
 ```commandline
 psql -U postgres  
