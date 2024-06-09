@@ -56,7 +56,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group m-4">
-                        {% if user.is_superuser or user == object.user %}
+                        {% if user.is_superuser or user == object.owner %}
                         <a href="{% url 'main:mailing_update' object.pk %}" type="button"
                            class="btn btn-sm btn-outline-secondary">Редактировать</a>
                         <a href="{% url 'main:mailing_delete' object.pk %}" type="button"

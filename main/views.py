@@ -65,7 +65,7 @@ class MailingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user.is_staff:
             return True
         return (self.request.user == Mailing.objects.get(
-            pk=self.kwargs['pk']).user)
+            pk=self.kwargs['pk']).owner)
 
 
 class MailingUpdateModeratorView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
